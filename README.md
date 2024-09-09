@@ -1,10 +1,12 @@
 
 C.  Customize the HTML user interface for your customers application. The user interface should include the shop name, the product names and the names of the parts.
+    
     File Name: mainscreen.html
     Line Number where changes were made: 14, 20, 26,and 58.
     Change: Title was changed to JC's Auto. Header(shop name) was changed to JC's Auto Parts. Parts changed to Car Parts. Products changed to Kits.
 
 D.  Add an “About” page to the application to describe your chosen customer’s company to web viewers and include navigation to and from the “About” page and the main screen.
+    
     File Name: mainscreen.html   &  About.html  & AboutController
     Line Number where changes were made: 
         On mainscreen.html: 21
