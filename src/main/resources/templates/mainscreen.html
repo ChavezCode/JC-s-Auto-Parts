@@ -13,15 +13,13 @@
 
     <title>JC's Auto</title>
 </head>
-<body>
+<body class="bg-secondary">
 <!--//about .html needs mapping
 might also need to update the readme.md file to matche the new answer to task C-->
-<div class="container">
-    <h1 class="d-flex justify-content-left p-3 mb-2 bg-primary text-white">JC's Auto Parts</h1>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="About.html">About</a>
-    </nav>
-</div>
+<nav class="navbar navbar-light bg-light p-3 mb-2 bg-dark">
+    <h1 class="navbar-brand p-3 mb-2 bg-primary text-white">JC's Auto Parts</h1>
+    <a href="about" class="bs-primary">About</a>
+</nav>
 <div class="container">
 
     <hr>
@@ -36,9 +34,9 @@ might also need to update the readme.md file to matche the new answer to task C-
     <br><br>
     <a th:href="@{/showFormAddInPart}" class="btn btn-primary btn-sm mb-3">Add Inhouse Part</a>
     <a th:href="@{/showFormAddOutPart}" class="btn btn-primary btn-sm mb-3">Add Outsourced Part</a>
-    <table class="table table-bordered table-striped">
-        <thead class="thead-dark">
-        <tr>
+    <table class="table table-dark table-bordered table-hover">
+        <thead>
+        <tr class="text-center">
             <th>Name</th>
             <th>Price</th>
             <th>Inventory</th>
@@ -72,9 +70,9 @@ might also need to update the readme.md file to matche the new answer to task C-
     </script>
     <br><br>
     <a th:href="@{/showFormAddProduct}" class="btn btn-primary btn-sm mb-3">Add Product</a>
-    <table class="table table-bordered table-striped">
-        <thead class="thead-dark">
-        <tr>
+    <table class="table table-dark table-bordered table-hover">
+        <thead>
+        <tr class="text-center">
             <th>Name</th>
             <th>Price</th>
             <th>Inventory</th>
