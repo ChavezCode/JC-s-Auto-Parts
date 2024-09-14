@@ -66,4 +66,10 @@ public class ProductServiceImpl implements ProductService{
         }
         return (List<Product>) productRepository.findAll();
     }
+
+    //define decrementInv method (check to see if the product exists and if the inventory is greater than 0 Task F
+    @Override
+    public boolean decrementInv(Product theProduct) {
+        return (theProduct != null) && (theProduct.getInv() > 0);
+    }
 }

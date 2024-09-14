@@ -28,3 +28,30 @@ E.  Add a sample inventory appropriate for your chosen store to the application.
                                         The Inventory will only load up again once all the sample parts or products reach 0.
                                         Lines 47 - 90 use the set methods from the outsource part object extended from the part class, to add part information for the sample inventory.
                                         Lines 96 - 119 use the product contructor to initialize new product objects. 
+
+F. Add a "Buy Now" button to our product list. Your "Buy Now" button must meet each of the following parameters:
+- The "The “Buy Now” button must be next to the buttons that update and delete products.
+- The button should decrement the inventory of that product by one. It should not affect the inventory of any of the associated parts.
+- Display a message that indicates the success or failure of a purchase.
+
+    
+    File Name: mainscreen.html, ProductService, ProductServiceImpl, BuyProductController, buySuccess.html & outofstock.html
+    Line Number where changes were made:
+        On mainscreen.html: 91
+        On ProductService: 22
+        On ProductServiceImpl: 71 - 74
+        On BuyProductController: 1 - 43
+        On buySuccess.html: 1 - 49
+        On outofstock.html: 1 - 39
+    Changes made on mainscreen: added a "Buy Now" button and used a thymeleaf expression to generate a URl that will depend on the product ID.
+    Changes made in ProductService file: Initialized a boolean decrementInv method.
+    Changes made in ProductServiceImpl file: Defined the decrementInv method that passes a product as a parameter and checks if it exists and if the inventory is greater than 0, returning true or false. 
+    Changes made in the BuyProductController file: developed a controller named BuyProductController, set up injections of ProductRepository and ProductServiceImpl and set up a @GetMapping for "/buyProduct". 
+            I also set up a constructor injections of the BuyProductController. In this file I also defined the buyProduct method that accepts a productID as a parameter, that's mapped to theId and a model object.
+            After fetching the productID within the method, there is an if statement that brings in the decrementInv() method, which checks to see if the product can be decremented. If the statement returns true, 
+            then the product inventroy is decremented by one. and the model attribute is set to the name of the product, which is then referenced in the thymeleaf template in the buySuccess page.
+            If the statemet returns false, then the prodcut name is still added to the model as an attribute, but it is not decremented, and will be displayed in the outofstock page.
+    Changes made in the buySuccess AND the outofstock files: The buySuccess template was created to display a confirmation page to the customer, letting them know they successfully bought a product. The outofstock template
+            was created to display a message to the customer to let them know that the product is out of stock. the thymeleaf expressions in both, pull information from the model in the BuyProductController, to name the product that
+            was purchased, or that was out of stock. 
+

@@ -18,4 +18,6 @@ public interface ProductService {
     public void deleteById(int theId);
     public List<Product> listAll(String keyword);
 
+    //initialize decrement inv implementation
+    public boolean decrementInv(Product theProduct);
 }
