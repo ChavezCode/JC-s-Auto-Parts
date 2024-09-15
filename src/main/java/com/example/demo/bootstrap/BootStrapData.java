@@ -50,6 +50,9 @@ public class BootStrapData implements CommandLineRunner {
             oilFilter.setInv(15);
             oilFilter.setPrice(11.99);
             oilFilter.setId(021354);
+            // Task G
+            oilFilter.setMinInv(2);
+            oilFilter.setMaxInv(20);
             //saving the part to the Outsourced Part Repository
             outsourcedPartRepository.save(oilFilter);
 
@@ -59,6 +62,9 @@ public class BootStrapData implements CommandLineRunner {
             radiatorHose.setInv(20);
             radiatorHose.setPrice(20.50);
             radiatorHose.setId(021355);
+            // Task G
+            radiatorHose.setMinInv(4);
+            radiatorHose.setMaxInv(30);
             //saving the part to the Outsourced Part Repository
             outsourcedPartRepository.save(radiatorHose);
 
@@ -68,6 +74,9 @@ public class BootStrapData implements CommandLineRunner {
             waterPump.setInv(20);
             waterPump.setPrice(20.50);
             waterPump.setId(021356);
+            // Task G
+            waterPump.setMinInv(2);
+            waterPump.setMaxInv(30);
             //saving the part to the Outsourced Part Repository
             outsourcedPartRepository.save(waterPump);
 
@@ -77,6 +86,9 @@ public class BootStrapData implements CommandLineRunner {
             radiator.setInv(25);
             radiator.setPrice(79.99);
             radiator.setId(021357);
+            // Task G
+            radiator.setMinInv(3);
+            radiator.setMaxInv(30);
             //saving the part to the Outsourced Part Repository
             outsourcedPartRepository.save(radiator);
 
@@ -86,6 +98,9 @@ public class BootStrapData implements CommandLineRunner {
             drainPlug.setInv(20);
             drainPlug.setPrice(20.50);
             drainPlug.setId(021353);
+            // Task G
+            drainPlug.setMinInv(4);
+            drainPlug.setMaxInv(25);
             //saving the part to the Outsourced Part Repository
             outsourcedPartRepository.save(drainPlug);
 
