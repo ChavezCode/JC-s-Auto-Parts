@@ -5,6 +5,8 @@ import com.example.demo.validators.ValidDeletePart;
 import javax.persistence.*;
 import javax.validation.constraints.AssertTrue;
 import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
@@ -24,23 +26,29 @@ public abstract class Part implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     long id;
+    @NotBlank(message = "Part name cannot be blank.")
     String name;
-    @Min(value = 0, message = "Price value must be positive")
+
+    @NotNull(message = "Please enter a price for this part.")
+    @Min(value = 0, message = "Price value must be positive.")
     double price;
+
+
     @Min(value = 0, message = "Inventory value must be positive")
     int inv;
 
 
     //   task G
-    @AssertTrue()
-    private boolean isValid() {
-        if((getInv() >= getMinInv()) && (getInv() <= getMaxInv())) {
-            return true;
-        }
-        else {
-            return false;
-        }
-    }
+//    @AssertTrue(message = "Inventory must be between minimum and maximum inventory.")
+//    private boolean isValid() {
+//        if((getInv() >= getMinInv()) && (getInv() <= getMaxInv())) {
+//            return true;
+//        }
+//        else {
+//            return false;
+//        }
+//    }
+//
 
 //   task G
 

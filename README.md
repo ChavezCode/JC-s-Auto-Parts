@@ -62,15 +62,41 @@ G.  Modify the parts to track maximum and minimum inventory by doing the followi
 •  Rename the file the persistent storage is saved to.
 •  Modify the code to enforce that the inventory is between or at the minimum and maximum value.
 
-    File Name: Part, BoosStrapData, InhousePartForm.html, OutSourcePartForm.html & application.properties.
+    File Name: Part, BootStrapData, InhousePartForm.html, OutSourcePartForm.html & application.properties.
     Line Number where changes were made:
         On Part: 34 - 48, 67, 73, 78 - 93
         On BootStrapData: 54 & 55, 66 & 67, 78 & 79, 90 & 91, 102 & 103
         On InhousePartForm.html: 25 - 29
         On OutSourcedPartForm.html: 25 - 32
         On application.properties: 6
-    Changes made on Part file: Added an @AssertTrue validation and created an isValid method to check and make sure thtat inventory is between min and max values. I also initiated int minInv and int maxInv and added them to the PArt consturctor, and created
+    Changes made in Part file: Added an @AssertTrue validation and created an isValid method to check and make sure that inventory is between min and max values. I also initiated int minInv and int maxInv and added them to the Part consturctor, and created
             their associated getter and setter methods. 
     Changes made on the BootStrapData file: Modified the sample inventory to include the min and max values for each sample part. 
     Changes made on the InhousePartForm.html file & the OutSourcedPartForm.html file: I modified the thymeleaf template and added additional selection expressions to get the minimum and maximum inventory values.
     Changes made in the application.properties file: renamed the file the persistent storage is saved to.
+
+H.  Add validation for between or at the maximum and minimum fields. The validation must include the following:
+•  Display error messages for low inventory when adding and updating parts if the inventory is less than the minimum number of parts.
+•  Display error messages for low inventory when adding and updating products lowers the part inventory below the minimum.
+•  Display error messages when adding and updating parts if the inventory is greater than the maximum.
+
+    File Name: Part, OutSourcedPartForm.html, InhousePartForm.html, InventoryValidation, AddOutsourcedPartController, AddInhousePartController, productForm.html, ValidEnufParts & EnufPartsValidator.
+    Line Number where changes were made:
+        On Part: 40-49
+        On OutSourcedPartForm.html:  20, 22, 26 and 29
+        On InhousePartForm.html: 21, 25, 28 and 31
+        On InventoryValidation: New file created
+        On AddOutsourcedPartController: 28 & 29, 42 - 46
+        On AddInhousePartController: 29 & 30, 42 - 47
+        On productForm.html: 41 & 42, 52 & 53, 67 & 68, 79 & 80.
+        On ValidEnufParts: 21
+        On EnufPartsValidator: 37
+    Changes made in Part file: Added additional validation for the name and price fields. Also commented out the AssertTrue validation created for Task G since it was not needed after creating a seperate validation for minimum and maximum inventory.
+    Changes made in the OutSourcedPartForm and the InhousePartForm: Changed input type to text, to avoid the NumberFormatException error that was thrown if the inventory field was left blank. I also added more validation code in my thymeleaf template associated with the name and price fields.
+    Changes made in the InventoryValitation file: I created service methods to help with returnting messages and performing validations on the inventory field, if it fell below the minimum or the maximum values when being updated. Thwo methods were created in the InventoryValidation class, one for the
+        AddInhousePartController, and one for the AddOutsourcedPartController. 
+    Changes made in the AddOutsourcedPartController and AddInhousePartController file: Used the custom validator method and added logic to the submitForm field to check to see if there is an error in the inventory field to display that error into the form. 
+    Changes made in the productForm.html file: added min and max inventory to associated parts table and available parts table.
+    Changes made in the ValidEnufParts file: Updated the message to display a message that lets the user know that there aren't enough associated parts in the inventory. 
+    Changes made in the EnufPartsValidator: Added more logic to the isValid method to prevent the associated part inventory from going below the minimum inventory, which will display the message in the ValidEnufParts file. 
+

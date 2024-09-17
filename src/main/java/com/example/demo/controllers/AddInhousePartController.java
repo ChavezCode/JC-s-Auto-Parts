@@ -2,15 +2,13 @@ package com.example.demo.controllers;
 
 import com.example.demo.domain.InhousePart;
 import com.example.demo.domain.Part;
-import com.example.demo.service.InhousePartService;
-import com.example.demo.service.InhousePartServiceImpl;
-import com.example.demo.service.PartService;
-import com.example.demo.service.PartServiceImpl;
+import com.example.demo.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -28,6 +26,8 @@ import javax.validation.Valid;
 public class AddInhousePartController{
     @Autowired
     private ApplicationContext context;
+    @Autowired
+    private InventoryValidation inventoryValidation;
 
     @GetMapping("/showFormAddInPart")
     public String showFormAddInhousePart(Model theModel){
@@ -39,6 +39,12 @@ public class AddInhousePartController{
     @PostMapping("/showFormAddInPart")
     public String submitForm(@Valid @ModelAttribute("inhousepart") InhousePart part, BindingResult theBindingResult, Model theModel){
         theModel.addAttribute("inhousepart",part);
+//        Task H
+        String err = inventoryValidation.validateInventoryIn(part);
+        if (!err.isEmpty()){
+            FieldError error = new FieldError("outsourcedpart", "inv", err);
+            theBindingResult.addError(error);
+        }
         if(theBindingResult.hasErrors()){
             return "InhousePartForm";
         }
