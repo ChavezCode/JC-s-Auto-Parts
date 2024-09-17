@@ -50,8 +50,27 @@ F. Add a "Buy Now" button to our product list. Your "Buy Now" button must meet e
             I also set up a constructor injections of the BuyProductController. In this file I also defined the buyProduct method that accepts a productID as a parameter, that's mapped to theId and a model object.
             After fetching the productID within the method, there is an if statement that brings in the decrementInv() method, which checks to see if the product can be decremented. If the statement returns true, 
             then the product inventroy is decremented by one. and the model attribute is set to the name of the product, which is then referenced in the thymeleaf template in the buySuccess page.
-            If the statemet returns false, then the prodcut name is still added to the model as an attribute, but it is not decremented, and will be displayed in the outofstock page.
+            If the statemet returns false, then the product name is still added to the model as an attribute, but it is not decremented, and will be displayed in the outofstock page.
     Changes made in the buySuccess AND the outofstock files: The buySuccess template was created to display a confirmation page to the customer, letting them know they successfully bought a product. The outofstock template
-            was created to display a message to the customer to let them know that the product is out of stock. the thymeleaf expressions in both, pull information from the model in the BuyProductController, to name the product that
+            was created to display a message to the customer to let them know that the product is out of stock. the thymeleaf expressions in both, pulls information from the model in the BuyProductController, to name the product that
             was purchased, or that was out of stock. 
 
+G.  Modify the parts to track maximum and minimum inventory by doing the following:
+•  Add additional fields to the part entity for maximum and minimum inventory.
+•  Modify the sample inventory to include the maximum and minimum fields.
+•  Add to the InhousePartForm and OutsourcedPartForm forms additional text inputs for the inventory so the user can set the maximum and minimum values.
+•  Rename the file the persistent storage is saved to.
+•  Modify the code to enforce that the inventory is between or at the minimum and maximum value.
+
+    File Name: Part, BoosStrapData, InhousePartForm.html, OutSourcePartForm.html & application.properties.
+    Line Number where changes were made:
+        On Part: 34 - 48, 67, 73, 78 - 93
+        On BootStrapData: 54 & 55, 66 & 67, 78 & 79, 90 & 91, 102 & 103
+        On InhousePartForm.html: 25 - 29
+        On OutSourcedPartForm.html: 25 - 32
+        On application.properties: 6
+    Changes made on Part file: Added an @AssertTrue validation and created an isValid method to check and make sure thtat inventory is between min and max values. I also initiated int minInv and int maxInv and added them to the PArt consturctor, and created
+            their associated getter and setter methods. 
+    Changes made on the BootStrapData file: Modified the sample inventory to include the min and max values for each sample part. 
+    Changes made on the InhousePartForm.html file & the OutSourcedPartForm.html file: I modified the thymeleaf template and added additional selection expressions to get the minimum and maximum inventory values.
+    Changes made in the application.properties file: renamed the file the persistent storage is saved to.

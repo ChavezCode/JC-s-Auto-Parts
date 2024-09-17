@@ -41,6 +41,10 @@ might also need to update the readme.md file to match the new answer to task C--
             <th>Name</th>
             <th>Price</th>
             <th>Inventory</th>
+<!--            max and min fields-->
+            <th>Min</th>
+            <th>Max</th>
+<!--            -->
             <th>Action</th>
         </tr>
         </thead>
@@ -49,6 +53,10 @@ might also need to update the readme.md file to match the new answer to task C--
             <td th:text="${tempPart.name}">1</td>
             <td th:text="${tempPart.price}">1</td>
             <td th:text="${tempPart.inv}">1</td>
+<!--            displaying max and min inv not required for task G -->
+            <td th:text="${tempPart.minInv}">1</td>
+            <td th:text="${tempPart.maxInv}">1</td>
+<!--            -->
             <td><a th:href="@{/showPartFormForUpdate(partID=${tempPart.id})}" class="btn btn-primary btn-sm mb-3">Update</a>
                 <a th:href="@{/deletepart(partID=${tempPart.id})}" class="btn btn-danger btn-sm mb-3"
                    onclick="if(!(confirm('Are you sure you want to delete this part?')))return false">Delete</a>

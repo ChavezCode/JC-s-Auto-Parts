@@ -22,6 +22,14 @@
 <p><input type="text" th:field="*{inv}" placeholder="Inventory" class="form-control mb-4 col-4"/></p>
     <p th:if="${#fields.hasErrors('inv')}" th:errors="*{inv}">Inventory Error</p>
 
+    <!--    Task G adding additional text inputs for the inventory so the user can set the maximum and minimum values. -->
+    <p><input type="text" th:field="*{minInv}" placeholder="Minimum Inventory" class="form-control mb-4 col-4"/></p>
+    <p th:if="${#fields.hasErrors('minInv')}" th:errors="*{minInv}">Inventory Error</p>
+
+    <p><input type="text" th:field="*{maxInv}" placeholder="Maximum Inventory" class="form-control mb-4 col-4"/></p>
+    <p th:if="${#fields.hasErrors('maxInv')}" th:errors="*{maxInv}">Inventory Error</p>
+
+<!--    -->
     <p><input type="text" th:field="*{companyName}" placeholder="Company Name" class="form-control mb-4 col-4"/></p>
 
 <p><input type="submit" value="Submit" /></p>
