@@ -4,21 +4,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
     <title>Part Form</title>
 
 <!--    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />-->
 </head>
-<body>
-<h1>Product Detail</h1>
+<body class="bg-secondary">
+<nav class="navbar navbar-light bg-light p-3 mb-2 bg-dark">
+    <h1 class="navbar-brand p-3 mb-2 bg-primary text-white">JC's Auto Parts</h1>
+    <a href="mainscreen" class="bs-primary">Home</a>
+</nav>
+<h1 class="text-center">Product Detail</h1>
+<div class="container">
 <form action="#" th:action="@{/showFormAddProduct}" th:object="${product}" method="POST"}>
     <!-- Add hidden form field to handle update -->
     <p><input type="hidden" th:field="*{id}"/></p>
-
+    <label class="p-2">Product Name</label>
     <p><input type="text" th:field="*{name}" placeholder="Name" class="form-control mb-4 col-4"/></p>
 
+    <label class="p-2">Product price</label>
     <p><input type="text" th:field="*{price}" placeholder= "Price" class="form-control mb-4 col-4"/></p>
 
-
+    <label class="p-2">Product Inventory</label>
     <p><input type="text" th:field="*{inv}" placeholder="Inventory" class="form-control mb-4 col-4"/></p>
 
     <p>
@@ -31,7 +40,7 @@
 
 
 <table class="table table-bordered table-striped">
-    <thead class="thead-dark">
+    <table class="table table-dark table-bordered table-hover">
     <h2>Available Parts</h2>
     <tr>
         <th>Name</th>
@@ -56,7 +65,7 @@
     </tr>
     </form>
 </table>
-    <table class="table table-bordered table-striped">
+    <table class="table table-dark table-bordered table-hover">
         <h2>Associated Parts</h2>
         <thead class="thead-dark">
         <tr>
@@ -87,5 +96,6 @@
 
 <!--<footer><a href="http://localhost:8080/">Link-->
 <!--    to Main Screen</a></footer>-->
+    </div>
 </body>
 </html>
