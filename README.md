@@ -108,3 +108,9 @@ I. Add at least two unit tests for the maximum and minimum fields to the PartTes
         On PartTest: 89 - 105
     Changes made in the pom.xml file: added a more recent version of junit to the project. 
     Changes made in the PartTest file: Added unit tests for maximum and minimum inventory using the assertEquals method.
+
+J. Remove the class files for any unused validators in order to clean your code.
+
+    File Name: DeletePartValidator.
+    Line Number where chandes were made: Entire file.
+    Changes made on DeletePartValidator: The whole file was eleted due to it being unused in this project. 
