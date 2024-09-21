@@ -83,6 +83,27 @@ class PartTest {
         assertEquals(price,partOut.getPrice());
     }
 
+// Task J
+//    use assertEquals to compare the minInv of an inhouse and outsourced part, to what is expected from that result
+    @Test
+    void getMinInv() {
+        int minInv=1;
+        partIn.setMinInv(minInv);
+        assertEquals(minInv,partIn.getMinInv());
+        partOut.setMinInv(minInv);
+        assertEquals(minInv,partOut.getMinInv());
+    }
+
+//    use assertEquals to compare the maxInv of an inhouse and outsourced part, to what is expected from that result
+    @Test
+    void getMaxInv() {
+        int maxInv=10;
+        partIn.setMaxInv(maxInv);
+        assertEquals(maxInv,partIn.getMaxInv());
+        partOut.setMaxInv(maxInv);
+        assertEquals(maxInv,partOut.getMaxInv());
+    }
+
     @Test
     void getInv() {
         int inv=5;

@@ -100,3 +100,11 @@ H.  Add validation for between or at the maximum and minimum fields. The validat
     Changes made in the ValidEnufParts file: Updated the message to display a message that lets the user know that there aren't enough associated parts in the inventory. 
     Changes made in the EnufPartsValidator: Added more logic to the isValid method to prevent the associated part inventory from going below the minimum inventory, which will display the message in the ValidEnufParts file. 
 
+I. Add at least two unit tests for the maximum and minimum fields to the PartTest class in the test package.
+
+    File Name: Pom.xml, PartTest.
+    Line Number where changes were made: 
+        On pom.xml: 54 - 56
+        On PartTest: 89 - 105
+    Changes made in the pom.xml file: added a more recent version of junit to the project. 
+    Changes made in the PartTest file: Added unit tests for maximum and minimum inventory using the assertEquals method.
