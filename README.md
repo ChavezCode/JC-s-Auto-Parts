@@ -1,3 +1,4 @@
+This project, which was part of my coursework, gave me hands-on experience customizing a Spring Framework application, combining front-end HTML design with back-end Java functionality. I learned how to manage inventory within a software system, ensuring product and part data remained consistent, and implemented features like validation for stock levels, error handling, and real-time inventory updates. I also became proficient in using GitLab for version control, documenting my code changes, and writing unit tests to ensure my application’s robustness. Additionally, I enhanced the user interface by adding interactive elements like a “Buy Now” button and an "About" page, improving the user experience with thoughtful design and clear navigation.
 
 C.  Customize the HTML user interface for your customer's application. The user interface should include the shop name, the product name, and the names of the parts.
 
